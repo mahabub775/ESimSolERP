@@ -38,7 +38,9 @@ namespace BasicSetup
                     cfg.Host("rabbitmq://localhost");
 
 
-                    cfg.ReceiveEndpoint("order-queue", e =>
+                //cfg.ReceiveEndpoint("order-queue", e =>
+                cfg.ReceiveEndpoint("PriceChange-queue", e =>
+                
                          {
                              e.PrefetchCount = 16;
                              e.UseMessageRetry(r => r.Interval(2, 100));
